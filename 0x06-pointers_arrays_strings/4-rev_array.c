@@ -1,5 +1,6 @@
 #include "main.h"
 #include <string.h>
+#include <stdio.h>
 /**
  * reverse_array - reversing the content of an array
  * @a: parameter 1
@@ -10,7 +11,10 @@ void reverse_array(int *a, int n)
 {
 	int i;
 
-	for (i = n; i >= 0; i--)
-		printf("%d", a[i]);
-	return (0);
+	for (i = 0; i < n / 2; i++)
+	{
+		int k = a[i];
+		a[i] = a[n - i - 1];
+		a[n - i - 1] = k;
+	}
 }
