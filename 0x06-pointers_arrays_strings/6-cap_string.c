@@ -9,7 +9,7 @@
 char *cap_string(char *str)
 {
 	int i;
-	const char *separators = " \t\n,;.!?\"(){}";
+	const char *separators = "\t\n,;.!?\"(){}";
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
