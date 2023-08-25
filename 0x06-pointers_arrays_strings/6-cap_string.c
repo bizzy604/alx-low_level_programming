@@ -1,23 +1,31 @@
 #include "main.h"
-#include <ctype.h>
-#include <string.h>
+
 /**
- * cap_string - capitalizing the first letter of a string
- * @str: parameter
- * Return: Character
+ * cap_string - capitalizes all words in a string
+ * @s: string
+ * Return: address of s
  */
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	int i;
-	const char *separators = "\t\n,;.!?\"(){}";
+	int i = 0, j;
+	char a[] = " \t\n,;.!?\"(){}";
 
-	for (i = 0; str[i] != '\0'; i++)
+	while (*(s + i))
 	{
-
-		if ((i == 0 || strchr(separators, str[i])) && islower(str[i + 1]))
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
 		{
-			str[i + 1] = toupper(str[i + 1]);
+			if (i == 0)
+				*(s + i) -= 'a' - 'A';
+			else
+			{
+				for (j = 0; j <= 12; j++)
+				{
+					if (a[j] == *(s + i - 1))
+						*(s + i) -= 'a' - 'A';
+				}
+			}
 		}
+		i++;
 	}
-	return (str);
+	return (s);
 }
