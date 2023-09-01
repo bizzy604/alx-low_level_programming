@@ -1,12 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
+
 /**
  * main - printing the name
  * @argc: argunent count
  * @argv: argument
  * Return: Always 0
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	(void)argc;
 
