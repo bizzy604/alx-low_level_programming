@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	sum = strtol(argv[1], &p, 10);
+	sum = strtol(argv[1], &ptr, 10);
 	count = 0;
 
 	if (!*ptr)
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 				if (sum >= cents[i])
 				{
 					count += sum / cents[i];
-					total = sum % cents[i];
+					sum = sum % cents[i];
 				}
 			}
 		}
