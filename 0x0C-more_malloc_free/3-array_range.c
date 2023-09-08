@@ -1,6 +1,8 @@
 #include "main.h"
+#include <stddef.h>
+#include <stdlib.h>
 /*
- * array_range - arranging of array
+ * *array_range - arranging of array
  * @min: minium parameter
  * @max: maximum parameter
  * Return: pointer
