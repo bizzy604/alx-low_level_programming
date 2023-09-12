@@ -5,7 +5,7 @@
  * @d: dog parameter
  * Return: void
  */
-void print_dod(struct dog *d)
+void print_dog(struct dog *d)
 {
 	if (d)
 	{
