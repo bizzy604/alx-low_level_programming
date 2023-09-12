@@ -8,8 +8,7 @@
  *
  * Return: NULL if zero otherwise pointer
  */
-
-char *str_concat(char *s1, char *s2)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	int i, j, k, l;
 	char *ptr;
@@ -33,7 +32,7 @@ char *str_concat(char *s1, char *s2)
 		j++;
 	}
 
-	p = malloc((i + j + 1) * sizeof(char));
+	ptr = malloc((i + j + 1) * sizeof(char));
 	if (ptr == NULL)
 		return (0);
 	for (k = 0; k < i; k++)
