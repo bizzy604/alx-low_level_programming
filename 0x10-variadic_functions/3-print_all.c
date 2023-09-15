@@ -65,8 +65,8 @@ void print_all(const char * const format, ...)
 	va_list arg;
 	int i, j;
 	char *sep = "";
-
-	print_d data[] = {
+	
+	char *data[] = {
 		{"c", print_char},
 		{"i", print_int},
 		{"f", print_float},
@@ -79,7 +79,7 @@ void print_all(const char * const format, ...)
 	while (format && *(format + i))
 	{
 		j = 0;
-		while (j < 4 && *(format + i) != *(data[j].c))
+		while (j < 4 && *(format + i) != *(data[j]))
 		{
 			j++;
 		}
