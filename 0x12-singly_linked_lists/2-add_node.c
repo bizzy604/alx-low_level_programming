@@ -1,19 +1,19 @@
 #include "lists.h"
 
 /**
- * strlen - function that returns the length of a string.
+ * _strlen - function that returns the length of a string.
  * @s : s is a character
  * Return: value is i
  */
-int strlen(const char *s)
+int _strlen(const char *s)
 {
-	int i = 0;
+	int k = 0;
 
-	while (s[i] != '\0')
+	while (s[k] != '\0')
 	{
-		i++;
+		k++;
 	}
-	return (i);
+	return (k);
 }
 
 /**
@@ -31,7 +31,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	adding->str = strdup(str);
 
-	adding->len = strlen(str);
+	adding->len = _strlen(str);
 	adding->next = *head;
 	*head = add;
 
