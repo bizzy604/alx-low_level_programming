@@ -1,8 +1,7 @@
 #include<stdio.h>
 
 /**
- * amonikevin - Apply the constructor attribute to amonikevin function so that it
- *   is executed before main
+ * amonikevin - Apply the constructor attribute to amonikevin()
  */
 void amonikevin(void) __attribute__ ((constructor));
 
