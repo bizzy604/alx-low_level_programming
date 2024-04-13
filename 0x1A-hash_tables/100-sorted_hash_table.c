@@ -8,19 +8,19 @@
  * shash_table_t, returns NULL if an error occurs
  */
 
-kev_shash_table_t *shash_table_create(unsigned long int size)
+shash_table_t *shash_table_create(unsigned long int size)
 {
-	kev_shash_table_t *table;
+	shash_table_t *table;
 
 	if (size <= 0)
 		return (NULL);
 
-	table = malloc(sizeof(kev_shash_table_t));
+	table = malloc(sizeof(shash_table_t));
 
 	if (table == NULL)
 		return (NULL);
 
-	table->array = calloc(size, sizeof(kev_shash_node_t *));
+	table->array = calloc(size, sizeof(shash_node_t *));
 
 	if (table->array == NULL)
 	{
@@ -42,11 +42,11 @@ kev_shash_table_t *shash_table_create(unsigned long int size)
  * Return: shash_node_t pointer address if successful, NULL otherwise
  */
 
-kev_shash_node_t *make_node(const char *key, const char *value)
+shash_node_t *make_node(const char *key, const char *value)
 {
-	kev_shash_node_t *new;
+	shash_node_t *new;
 
-	new = malloc(sizeof(kev_shash_node_t));
+	new = malloc(sizeof(shash_node_t));
 
 	if (new == NULL)
 		return (NULL);
@@ -66,9 +66,9 @@ kev_shash_node_t *make_node(const char *key, const char *value)
  * Return: 1 if the head node was updated or created, 0 otherwise
  */
 
-int assign_head(kev_shash_node_t *new, kev_shash_table_t *ht)
+int assign_head(shash_node_t *new, shash_table_t *ht)
 {
-	kev_shash_node_t *temp;
+	shash_node_t *temp;
 
 	if (ht->shead == NULL)
 	{
@@ -104,9 +104,9 @@ int assign_head(kev_shash_node_t *new, kev_shash_table_t *ht)
  * Return: Void
  */
 
-void assign(kev_shash_node_t *new, kev_shash_table_t *ht)
+void assign(shash_node_t *new, shash_table_t *ht)
 {
-	kev_shash_node_t *temp;
+	shash_node_t *temp;
 	int status;
 
 	status = assign_head(new, ht);
@@ -140,16 +140,16 @@ void assign(kev_shash_node_t *new, kev_shash_table_t *ht)
 }
 
 /**
- * kev_shash_table_set - function that adds an element to the hash table
+ * shash_table_set - function that adds an element to the hash table
  * @ht: Double pointer of type shash_table_t for hash table
  * @key: Const char pointer for unique value to be added
  * @value: Const char pointer for associated value with key to be added
  * Return: 1 if success, 0 otherwise
  */
 
-int shash_table_set(kev_shash_table_t *ht, const char *key, const char *value)
+int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
-	kev_shash_node_t *head, *new, *temp;
+	shash_node_t *head, *new, *temp;
 	unsigned long int index;
 
 	if (ht == NULL || key == NULL)
@@ -190,16 +190,16 @@ int shash_table_set(kev_shash_table_t *ht, const char *key, const char *value)
 }
 
 /**
- * kev_shash_table_get - function that retrieves a value associated with a key
+ * shash_table_get - function that retrieves a value associated with a key
  * @ht: Double pointer of type shash_table_t for hash table
  * @key: Const char pointer for unique value to be searched for
  * Return: The value associated with the element found, NULL if key couldn't be
  * found
  */
 
-char *shash_table_get(const kev_shash_table_t *ht, const char *key)
+char *shash_table_get(const shash_table_t *ht, const char *key)
 {
-	kev_shash_node_t *temp;
+	shash_node_t *temp;
 	unsigned long int index;
 
 	if (ht == NULL || key == NULL)
@@ -231,7 +231,7 @@ char *shash_table_get(const kev_shash_table_t *ht, const char *key)
 
 void shash_table_print(const shash_table_t *ht)
 {
-	kev_shash_node_t *temp;
+	shash_node_t *temp;
 
 	if (ht == NULL)
 		return;
@@ -260,7 +260,7 @@ void shash_table_print(const shash_table_t *ht)
 
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	kev_shash_node_t *temp;
+	shash_node_t *temp;
 
 	if (ht == NULL)
 		return;
@@ -287,10 +287,10 @@ void shash_table_print_rev(const shash_table_t *ht)
  * Return: Void
  */
 
-void shash_table_delete(kev_shash_table_t *ht)
+void shash_table_delete(shash_table_t *ht)
 {
 	unsigned long int i = 0;
-	kev_shash_node_t *temp, *temp2;
+	shash_node_t *temp, *temp2;
 
 	for (i = 0; i < ht->size; i++)
 	{
